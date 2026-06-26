@@ -1,0 +1,27 @@
+{
+  "build": {
+    "command": "npm run build",
+    "outputDirectory": ".next"
+  },
+  "install": {
+    "command": "npm install"
+  },
+  "framework": "nextjs",
+  "cloudFunctions": {
+    "runtime": "nodejs18",
+    "directories": [
+      { "name": "api/auth/login", "entry": "index.ts" },
+      { "name": "api/orders", "entry": "index.ts" },
+      { "name": "api/payments", "entry": "index.ts" },
+      { "name": "api/config/schemas", "entry": "index.ts" },
+      { "name": "api/admin", "entry": "index.ts" }
+    ]
+  },
+  "rewrites": [
+    { "source": "/api/auth/:path*", "destination": "/api/auth/:path*" },
+    { "source": "/api/orders/:path*", "destination": "/api/orders/:path*" },
+    { "source": "/api/payments/:path*", "destination": "/api/payments/:path*" },
+    { "source": "/api/config/:path*", "destination": "/api/config/:path*" },
+    { "source": "/api/admin/:path*", "destination": "/api/admin/:path*" }
+  ]
+}
